@@ -1,9 +1,9 @@
 # RNCP DevOps System Administrator
-<ins>**Evaluation en cours de Formation ECF3**</ins>
+<ins>**Evaluation en cours de Formation ECF7**</ins>
 
 #  🐳 GESTION DE CONTENEURS
 
-## Prise en main de DOCKER
+## ✅ Prise en main de DOCKER
 1. Installer Docker et tester l'installation avec un docker -version
 2. Lister les conteneurs actifs de votre machine.
 3. Lancer un conteneur test avec l'image nginx:latest avec le paramètre -p 8080:80.
@@ -15,8 +15,8 @@ Vérifier si la modification sur l'url 127.0.0.1 a bien eu lieu.
 6. Entrer dans l'image avec la commande docker exec -it test increment.sh
 7. Supprimer l'image.
 
-## Construire une architecture de type micro-service
-1. Créer une structure de fichier de type micro-service :
+## ✅ Construire une architecture de type micro-service
+1. ⚙️ Créer une structure de fichier de type micro-service :
 ```
 📁 myapp/
 ├── 📁 serveurweb/
@@ -31,7 +31,7 @@ Vérifier si la modification sur l'url 127.0.0.1 a bien eu lieu.
     └── ⚙ increment.sh
 ```
 	
-2. Définir dans le service serveurweb
+2. 🌍 Définir dans le service serveurweb
 - un Dockerfile créant un conteneur Nginx avec un volume de montage persistant
 - le Dockerfile devrait ressembler à :
 ```bash
@@ -42,12 +42,12 @@ VOLUME /var/www/html /
 ENTRYPOINT [ "nginx", "-g", "daemon o_;"]
 ```
 
-3. Implémenter un fichier shell qui incrémente une variable de 1 chaque seconde
+3. ⚙️ Implémenter un fichier shell qui incrémente une variable de 1 chaque seconde
 - qui sauvegarde cette variable dans les fichiers /var/www/html/wrk1.txt et /var/www/html/wrk2.txt
 - puis lance le fichier python affichage.py. 
 Ce mini script que vous implémenterez lira ce fichier au format text pour modifier le fichier html du serveur web.
 
-4. Définissez dans les services worker1 et worker2:
+4. 🐳 Définissez dans les services worker1 et worker2:
 - un Dockerfile créant un conteneur Ubuntu avec une gestion des fichiers de code dans le cadre d'un binding avec le volume de montage persistant du serveur web
 - le Dockerfile devrait ressembler à :
 ```bash
@@ -59,7 +59,7 @@ RUN chmod 755 /increment.sh /
 ENTRYPOINT ["/ increment.sh"]
 ```
 
-5. Lancer les services un par un :
+5. 🚀 Lancer les services un par un :
 ```bash
 docker run -tid -name test serveurweb
 docker run -tid -name worker1 -volumes-from test worker1 
